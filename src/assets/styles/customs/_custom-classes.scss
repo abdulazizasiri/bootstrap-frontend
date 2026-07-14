@@ -1,0 +1,227 @@
+.font-light {
+    font-family: 'DSC light';
+}
+
+.font-regular {
+    font-family: 'DSC Regular';
+}
+
+.font-medium {
+    font-family: 'DSC Medium';
+}
+
+.font-bold {
+    font-family: 'DSC Bold';
+}
+
+.alert-danger {
+    --bs-alert-color: #A42334;
+    --bs-alert-bg: #FFE6E2;
+}
+
+.alert-warning {
+    --bs-alert-color: #B58500;
+    --bs-alert-bg: #FFFBE4;
+}
+
+.alert-success {
+    --bs-alert-color: #286140;
+    --bs-alert-bg: #D7F8F6;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute
+}
+
+.pointer {
+    cursor: pointer
+}
+
+.overflow-hidden {
+    overflow: hidden
+}
+
+.zindex2 {
+    z-index: 2
+}
+
+.overflow-y-auto {
+    overflow-y: auto
+}
+
+.small {
+    font-size: 14px;
+}
+
+.xsmall {
+    font-size: 10px;
+}
+
+.text-main-color {
+    color: #5A5959;
+}
+
+.text-gold {
+    color: #B58500;
+}
+
+.text-light-green {
+    color: var(--bs-light-success) !important;
+}
+
+.text-blue {
+    color: var(--bs-blue) !important;
+}
+
+.text-brown {
+    color: #6E6259;
+}
+
+.text-darkgreen {
+    color: #286140;
+}
+
+.text-white {
+    color: #fff;
+}
+
+.text-red {
+    color: #A42334;
+}
+
+.text-gold-light {
+    color: #B5B1A8;
+}
+
+.text-align-inherit {
+    text-align: inherit
+}
+
+.text-align-left {
+    text-align: left
+}
+
+.text-align-center {
+    text-align: center
+}
+
+.text-align-right {
+    text-align: right
+}
+
+.text-align-justify {
+    text-align: justify
+}
+
+.flex-grow-auto {
+    flex-grow: inherit !important;
+}
+
+.border-dashed-goldlight {
+    border: 2px dashed #B5B1A8;
+}
+
+.border-darkgreen {
+    border-color: #286140 !important;
+}
+
+.bg-gray {
+    background-color: #F0F2F1;
+}
+
+.direction-rtl,
+.dir-rtl {
+    direction: rtl;
+}
+
+.direction-ltr,
+.dir-ltr {
+    direction: ltr;
+}
+
+.unicode-bidi-override {
+    unicode-bidi: bidi-override;
+}
+
+.list-style-type-none {
+    list-style-type: none;
+}
+
+.info-text {
+    font-size: 13px;
+}
+
+.word-elipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    width: 100%;
+}
+
+.break-line {
+    white-space: pre-wrap;
+    /* Handles line breaks and wraps text */
+}
+
+.break {
+    page-break-after: always;
+}
+
+.pr-15 {
+    padding-right: 15px;
+}
+
+.pl-15 {
+    padding-left: 15px;
+}
+
+.py-5 {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.py-10 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.py-15 {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.bg-gold {
+    background-color: #b68400
+}
+
+.valign-middle {
+    vertical-align: middle;
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.mt-0 {
+    margin-top: 0;
+}
+
+.my-0 {
+    margin-bottom: 0;
+    margin-top: 0
+}
+
+ul.nostyle {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.gray-pencil-icon {
+    color: #B4B6B5
+}

@@ -1,0 +1,579 @@
+/*--------------------------------------------------------------
+# Back to top button start
+--------------------------------------------------------------*/
+.back-to-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    bottom: 15px;
+    z-index: 100;
+    background: #B48500;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    transition: all 0.4s;
+}
+
+.ltr .back-to-top {
+    right: 15px;
+}
+
+.rtl .back-to-top {
+    left: 15px;
+}
+
+.back-to-top i {
+    font-size: 24px;
+    color: #fff;
+    line-height: 0;
+}
+
+.back-to-top:hover {
+    background: #6F5200;
+    color: #fff;
+}
+
+.back-to-top.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+/*--------------------------------------------------------------
+# Back to top button end
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Buttons  start
+--------------------------------------------------------------*/
+button.btn {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-radius: 0;
+}
+
+.btn.btn-gold,
+.btn.btn-gold:focus-visible {
+    color: #fff;
+    background-color: #B58500;
+}
+
+.btn.btn-gold:hover {
+    color: #fff;
+    background-color: #6F5200;
+}
+
+.btn.btn-darkgreen,
+.btn.btn-darkgreen:focus-visible {
+    color: #fff;
+    background-color: #286140;
+}
+
+.btn.btn-darkgreen:hover {
+    color: #fff;
+    background-color: #1E4930;
+}
+
+.btn.btn-red,
+.btn.btn-red:focus-visible {
+    color: #fff;
+    background-color: #A42334;
+}
+
+.btn.btn-red:hover {
+    color: #fff;
+    background-color: #871d2b;
+}
+
+.btn.btn-outline-goldlight,
+.btn.btn-outline-goldlight:focus-visible {
+    color: #B5B1A8;
+    border-color: #B5B1A8;
+}
+
+.btn.btn-outline-goldlight:hover {
+    color: #5a5959;
+    border-color: #5a5959;
+}
+
+.btn.btn-outline-gold,
+.btn.btn-outline-gold:focus-visible {
+    color: #B58500;
+    border-color: #B58500;
+}
+
+.btn.btn-outline-gold:hover {
+    color: #6F5200;
+    border-color: #6F5200;
+}
+
+/*--------------------------------------------------------------
+# Buttons  end
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Form  start
+--------------------------------------------------------------*/
+form .form-control,
+form .form-select {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    color: #B5B1A8;
+    border-color: #d3d3d3;
+    border-radius: 0;
+}
+
+form .form-control:focus,
+form .form-select:focus {
+    color: #212529;
+    border-color: #d3d3d3;
+    background-color: #f7f9f8;
+    box-shadow: none;
+}
+
+.input-group .input-group-text {
+    border-color: #B5B1A8 !important
+}
+
+.form-container .row>* {
+    padding-right: calc(var(--bs-gutter-x)* .75);
+    padding-left: calc(var(--bs-gutter-x)* .75);
+}
+
+.form-check-input.larger {
+    width: 1.2em;
+    height: 1.2em;
+}
+
+.form-check-input:checked {
+    background-color: #286140;
+    border-color: #286140;
+}
+
+.form-control.border-light {
+    border-color: #F1F1F1 !important;
+}
+
+/*--------------------------------------------------------------
+# Form  end
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Form steps  end
+--------------------------------------------------------------*/
+
+ul.wizard li {
+    padding: 0;
+    display: flex;
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    margin-bottom: 25px;
+}
+
+ul.wizard {
+    counter-reset: num;
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+}
+
+ul.wizard li {
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+ul.wizard li::before {
+    counter-increment: num;
+    content: counter(num);
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 28px;
+    background: #F0F2F1;
+    cursor: pointer;
+    font-size: 14px;
+    color: #B5B1A8;
+}
+
+ul.wizard li:not(:last-child):after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    height: 4px;
+    background-color: #F0F2F1;
+    top: calc(0.75em - 0px);
+    z-index: -1;
+}
+
+html[dir="rtl"] ul.wizard li:not(:last-child):after {
+    left: inherit;
+    right: 50%;
+}
+
+ul.wizard li.active::before {
+    background: #B58500;
+    color: white;
+}
+
+ul.wizard li.active::after {
+    background: #B58500;
+}
+
+ul.wizard span {
+    color: #B5B1A8;
+    font-size: 14px;
+    word-break: break-word;
+    margin-top: 10px;
+    text-align: center;
+}
+
+ul.wizard li.completed::before {
+    background: #0057B5;
+    color: #fff;
+}
+
+ul.wizard li.completed span,
+ul.wizard li.active span {
+    color: #B58500;
+}
+
+ul.wizard li.completed::after {
+    background: #0057B5;
+}
+
+ul.wizard span,
+ul.wizard li.completed span,
+ul.wizard li.active span {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+/*--------------------------------------------------------------
+# form steps  end
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+# cards with pattern  start
+--------------------------------------------------------------*/
+
+.pattern {
+    background-image: url(../../images/dsc-pattern.svg);
+    width: 100%;
+    height: 70px;
+    background-repeat: repeat-x;
+    min-height: 70px;
+}
+
+/*--------------------------------------------------------------
+# cards with pattern  end
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Upload File start
+--------------------------------------------------------------*/
+
+.custom-file-input {
+    border: 2px dashed #B5B1A8;
+    padding: 0.7rem;
+}
+
+.custom-file-input .upload-file {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+/*--------------------------------------------------------------
+# Upload file end
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# popup start
+--------------------------------------------------------------*/
+.popup-container {
+    width: 70vw;
+}
+
+.popup-md-container {
+    width: 50vw;
+}
+
+.popup-sm-container {
+    width: 40vw;
+}
+
+.confirm-popup-container {
+    width: 30vw;
+}
+
+
+@media (max-width:576px) {
+
+    .popup-container,
+    .popup-md-container,
+    .popup-sm-container,
+    .confirm-popup-container {
+        width: 80vw;
+    }
+}
+
+/*--------------------------------------------------------------
+# popup end
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# duration-sep start
+--------------------------------------------------------------*/
+
+.duration-sep {
+    display: flex;
+    align-items: center;
+    width: 20%;
+    justify-content: space-between;
+}
+
+.duration-sep .line {
+    height: 2px;
+    border-bottom: 1px solid #286140;
+    margin-bottom: 2px;
+}
+
+.duration-sep:before,
+.duration-sep:after {
+    content: '•';
+    display: inline-block;
+    font-size: 24px;
+    color: #286140;
+}
+
+/*--------------------------------------------------------------
+# duration-sep end
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# nav-underline start
+--------------------------------------------------------------*/
+.nav-underline.nav-underline-darkgreen .nav-link {
+    color: #DCDCDC;
+    display: flex;
+    align-items: center;
+}
+
+.nav-underline.nav-underline-darkgreen .nav-link .badge {
+    background-color: #DCDCDC;
+}
+
+.nav-underline.nav-underline-darkgreen .nav-link.active,
+.nav-underline.nav-underline-darkgreen .show>.nav-link {
+    color: #286140;
+    border-bottom-color: #286140;
+}
+
+.nav-underline.nav-underline-darkgreen .nav-link.active .badge {
+    background-color: #286140;
+}
+
+/*--------------------------------------------------------------
+# nav-underline end
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# print start
+--------------------------------------------------------------*/
+
+@media print {
+    @page {
+        size: A3 portrait;
+        margin: 0mm;
+        padding: 20mm;
+    }
+
+    body {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        font-size: 9px;
+        margin: 1cm;
+    }
+
+    header,
+    footer {
+        display: none;
+    }
+
+    main#content {
+        overflow: visible !important;
+    }
+
+    .print-page {
+        page-break-before: always;
+    }
+
+    .logo-print {
+        display: flex !important;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 30px;
+
+        img {
+            height: 150px;
+            width: auto;
+        }
+    }
+
+    .logo-print+div {
+        padding-top: 0 !important;
+        margin: 0 !important;
+    }
+
+    .p-checkbox .p-checkbox-box .p-checkbox-icon {
+        color: black !important;
+    }
+
+    [disabled],
+    .p-disabled {
+        background-color: #ffffff !important;
+        border-color: #a7a9ab !important;
+    }
+
+    .break {
+        page-break-after: always;
+    }
+
+    a,
+    blockquote {
+        page-break-inside: avoid
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    img {
+        page-break-after: avoid;
+        page-break-inside: avoid
+    }
+
+    ul,
+    ol,
+    dl {
+        page-break-before: avoid
+    }
+
+    table {
+        page-break-inside: auto;
+    }
+
+    tr {
+        page-break-inside: auto;
+        page-break-after: auto;
+    }
+}
+
+/*--------------------------------------------------------------
+# print end
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Range Slider start
+--------------------------------------------------------------*/
+.rangeSliderWrapper input[type="range"] {
+    /* removing default appearance */
+    -webkit-appearance: none;
+    appearance: none;
+    /* creating a custom design */
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+    /*  slider progress trick  */
+    overflow: hidden;
+    border-radius: 0px;
+}
+
+/* Track: webkit browsers */
+.rangeSliderWrapper input[type="range"]::-webkit-slider-runnable-track {
+    height: 20px;
+    background: #F1F1F1;
+    border-radius: 0px;
+    border: 4px solid #fff;
+}
+
+/* Track: Mozilla Firefox */
+.rangeSliderWrapper input[type="range"]::-moz-range-track {
+    height: 20px;
+    background: #F1F1F1;
+    border-radius: 0px;
+    border: 4px solid #fff;
+}
+
+/* Thumb: webkit */
+.rangeSliderWrapper input[type="range"]::-webkit-slider-thumb {
+    /* removing default appearance */
+    -webkit-appearance: none;
+    appearance: none;
+    /* creating a custom design */
+    height: 20px;
+    width: 20px;
+    background-color: #F1F1F1;
+    border-radius: 0px;
+    /*  slider progress trick  */
+    box-shadow: -1050px 0 0 1050px #286140;
+    margin-top: -4px;
+    border: 2px solid #286140;
+}
+
+html[dir="rtl"] .rangeSliderWrapper input[type="range"]::-webkit-slider-thumb {
+    box-shadow: 1050px 0 0 1050px #286140;
+}
+
+.rangeSliderWrapper input[disabled] {
+    cursor: not-allowed;
+}
+
+/* Thumb: Firefox */
+.rangeSliderWrapper input[type="range"]::-moz-range-thumb {
+    height: 20px;
+    width: 20px;
+    background-color: #F1F1F1;
+    border-radius: 0px;
+    /*  slider progress trick  */
+    box-shadow: -1050px 0 0 1050px #286140;
+    margin-top: -4px;
+    border: 2px solid #286140;
+}
+
+html[dir="rtl"] .rangeSliderWrapper input[type="range"]::-moz-range-thumb {
+    box-shadow: 1050px 0 0 1050px #286140;
+}
+
+/*--------------------------------------------------------------
+# Range Slider end
+--------------------------------------------------------------*/
+
+.filterAccordion .accordion-button:not(.collapsed) {
+    background-color: transparent;
+    color: #B5B1A8
+}
+
+.auth-logo img {
+    height: 15vh;
+    max-height: 206.66px;
+}
+
+
+form .form-control,
+form .p-component,
+form .form-select,
+form .p-inputtext,
+.p-component,
+.p-inputtext {
+    font-size: inherit;
+}

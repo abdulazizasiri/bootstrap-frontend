@@ -1,0 +1,51 @@
+@font-face {
+    font-family: 'DSC Medium';
+    src: url('../../fonts/DSC-Medium.eot');
+    src: url('../../fonts/DSC-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/DSC-Medium.woff2') format('woff2'),
+        url('../../fonts/DSC-Medium.woff') format('woff'),
+        url('../../fonts/DSC-Medium.ttf') format('truetype'),
+        url('../../fonts/DSC-Medium.svg#DSC-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'DSC Bold';
+    src: url('../../fonts/DSC-bold.eot');
+    src: url('../../fonts/DSC-bold.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/DSC-bold.woff2') format('woff2'),
+        url('../../fonts/DSC-bold.woff') format('woff'),
+        url('../../fonts/DSC-bold.ttf') format('truetype'),
+        url('../../fonts/DSC-bold.svg#DSC-bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'DSC Regular';
+    src: url('../../fonts/DSC-Regular.eot');
+    src: url('../../fonts/DSC-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/DSC-Regular.woff2') format('woff2'),
+        url('../../fonts/DSC-Regular.woff') format('woff'),
+        url('../../fonts/DSC-Regular.ttf') format('truetype'),
+        url('../../fonts/DSC-Regular.svg#DSC-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'DSC light';
+    src: url('../../fonts/DSC-light.eot');
+    src: url('../../fonts/DSC-light.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/DSC-light.woff2') format('woff2'),
+        url('../../fonts/DSC-light.woff') format('woff'),
+        url('../../fonts/DSC-light.ttf') format('truetype'),
+        url('../../fonts/DSC-light.svg#DSC-light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}

@@ -1,0 +1,94 @@
+{
+  "APP": {
+    "TITLE": "Conference Room",
+    "WELCOME_TITLE": "Welcome to Conference Room Booking",
+    "WELCOME_SUBTITLE_USER": "Book conference rooms for your meetings",
+    "WELCOME_SUBTITLE_ADMIN": "Manage rooms and oversee all bookings"
+  },
+
+  "USER": {
+    "ROLE_ADMIN": "Administrator",
+    "ROLE_USER": "User",
+    "ACCESS_FULL": "Full access",
+    "ACCESS_LIMITED": "Book rooms only"
+  },
+
+  "NAV": {
+    "MY_BOOKINGS": "My Bookings",
+    "ALL_BOOKINGS": "All Bookings",
+    "NEW_BOOKING": "New Booking",
+    "BROWSE_ROOMS": "Browse Rooms",
+    "MANAGE_ROOMS": "Manage Rooms",
+    "MANAGE_BOOKINGS": "Manage Booking",
+      "LANGUAGE":"ع"
+
+  },
+    "BOOKING": {
+    "TITLE": "Book a Conference Room",
+    "ERROR_GENERIC": "An error occurred",
+    "SELECT_ROOM": "Select Room",
+    "ROOM_PLACEHOLDER": "Choose a conference room...",
+    "TITLE_PLACEHOLDER": "Enter meeting title",
+    "SEATS": "seats",
+    "FLOOR": "Floor",
+    "LOCATION": "Location",
+    "DATE": "Meeting Date",
+    "START_TIME": "Start Time",
+    "END_TIME": "End Time",
+    "INVITE_MEMBERS": "Invite Members",
+    "SELECT_MEMBERS_PLACEHOLDER": "Select team members to invite...",
+    "SELECT_MULTIPLE_HINT": "Hold Ctrl/Cmd to select multiple members",
+    "SUBMITTING": "Creating Booking...",
+    "SUBMIT": "Submit Booking",
+    "RESET": "Reset",
+    "BACK": "← Back to My Bookings",
+    "NO_DEPARTMENTS": "No departments available"
+
+  },
+  "BOOKINGS": {
+    "PAGE_TITLE": "Conference Room Bookings",
+    "PAGE_SUBTITLE": "Manage and monitor conference room reservations.",
+    "NEW_BOOKING": "New Booking",
+    "ERROR_GENERIC": "An error occurred while loading bookings.",
+    "LOADING": "Retrieving schedule...",
+    "ROOM": "Room:",
+    "STATUS_CONFIRMED": "Confirmed",
+    "CANCEL": "Cancel",
+        "PARTICIPANTS":  "Participants",
+    "TOTAL": "Total",
+    "EMPTY_TITLE": "No appointments scheduled",
+    "EMPTY_DESC": "There are no conference room bookings for this period.",
+    "TABLE": {
+      "DETAILS": "Meeting Details",
+      "DATE_TIME": "Date & Time",
+      "PARTICIPANTS": "Participants",
+      "STATUS": "Status",
+      "ACTIONS": "Actions"
+    }
+  },
+
+ "ROOMS": {
+    "TITLE": "All Rooms",
+    "ADD_ROOM": "Add Room",
+    "SEATS": "seats",
+    "FLOOR": "Floor",
+    "BOOK_ROOM": "Book Room",
+    "LOCATION": "Location"
+  },
+  "BUTTON": {
+    "LOGOUT": "Logout",
+    "UPDATE": "Update",
+    "DELETE": "Delete",
+    "CONFIRM": "Confirm",
+    "CANCEL": "Cancel",
+    "DELETE_CONFIRM_MSG": "Are you sure you want to delete this item?",
+    "DELETE_TITLE": "Confirm Deletion"
+  },
+  "NOT_AUTHORIZED": {
+    "TITLE": "Access Denied",
+    "DESCRIPTION": "Oops! You don't have the necessary permissions to view this page. Your session might have expired or your account lacks access rights.",
+    "RETRY_BUTTON": "Try Again / Login",
+    "HOME_BUTTON": "Go to Home",
+    "SUPPORT_TEXT": "If you believe this is a mistake, please contact your system administrator."
+  }
+}

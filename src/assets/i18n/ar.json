@@ -1,0 +1,113 @@
+{
+  "APP": {
+    "TITLE": " أتمتة طلبات التغيير",
+    "WELCOME_TITLE": " نظام إدارة طلبات التغيير",
+    "WELCOME_SUBTITLE_USER": "قم بحجز قاعات الاجتماعات لاجتماعاتك",
+    "WELCOME_SUBTITLE_ADMIN": "إدارة القاعات والإشراف على جميع الحجوزات"
+  },
+
+  "USER": {
+    "ROLE_ADMIN": "مدير النظام",
+    "ROLE_USER": "مستخدم",
+    "ACCESS_FULL": "صلاحيات كاملة",
+    "ACCESS_LIMITED": "حجز القاعات فقط"
+  },
+
+  "CHANGE_REQUEST": {
+    "TITLE": "طلب تغيير",
+    "REQUEST_NUMBER": "رقم الطلب",
+    "REQUEST_DATE": "تاريخ الطلب",
+    "REQUESTING_DEPARTMENT": "الإدارة الطالبة للتغيير",
+    "DEPARTMENT_PLACEHOLDER": "اختر الإدارة",
+    "REQUESTER_NAME": "اسم طالب التغيير",
+    "REQUESTER_PLACEHOLDER": "اختر طالب التغيير",
+    "REQUEST_TYPE": "نوع الطلب",
+    "REQUEST_TYPE_PLACEHOLDER": "اختر نوع الطلب",
+    "SYSTEM": "النظام",
+    "SYSTEM_PLACEHOLDER": "اختر النظام",
+    "IN_OPERATIONAL_PLAN": "هل الطلب من ضمن الخطة التشغيلية لهذا العام؟",
+    "ACTION_DESCRIPTION": "وصف الإجراء المطلوب",
+    "ACTION_DESCRIPTION_PLACEHOLDER": "اكتب وصف الإجراء المطلوب...",
+    "ATTACHMENTS": "المرفقات",
+    "OPTIONAL": "اختياري",
+    "ADD_ATTACHMENT": "إضافة مرفق",
+    "MAX_ATTACHMENTS_REACHED": "تم الوصول للحد الأقصى (3 مرفقات)",
+    "ATTACHMENT_HINT": "حتى 3 ملفات — PDF أو Word أو Excel فقط (بحد أقصى 5 ميجابايت لكل ملف)",
+    "REMOVE_ATTACHMENT": "إزالة المرفق",
+    "ERR_MAX_ATTACHMENTS": "يمكنك إرفاق {{max}} ملفات كحد أقصى",
+    "ERR_INVALID_TYPE": "يُسمح فقط بملفات PDF و Word و Excel",
+    "ERR_FILE_TOO_LARGE": "حجم الملف كبير جداً (الحد الأقصى {{max}})",
+    "ERR_DUPLICATE_FILE": "تمت إضافة هذا الملف مسبقاً",
+    "SUBMIT": "إرسال الطلب",
+    "SUBMITTING": "جارٍ الإرسال..."
+  },
+  "NAV": {
+    "MY_BOOKINGS": "حجوزاتي",
+    "ALL_BOOKINGS": "جميع الحجوزات",
+    "NEW_BOOKING": "طلب تغيير",
+    "NEW_DASHBOARD" : "لوحة المؤشرات",
+    "MANAGE_CHANGE_REQUEST": "إدارة طلبات التغيير",
+    "MANAGE_ROOMS": "إدارة القاعات",
+    "MANAGE_BOOKINGS": "إدارة المستخدمين",
+
+  "LANGUAGE":"En"
+  },
+    "BOOKING": {
+    "TITLE": "طلب تغيير جديد",
+    "ERROR_GENERIC": "حدث خطأ ما",
+    "SELECT_ROOM": "اختر القاعة",
+    "ROOM_PLACEHOLDER": "اختر قاعة الاجتماعات...",
+    "TITLE_PLACEHOLDER": "أدخل عنوان الاجتماع",
+    "SEATS": "مقاعد",
+    "FLOOR": "الدور",
+    "LOCATION": "الموقع",
+    "DATE": "تاريخ الاجتماع",
+    "START_TIME": "وقت البدء",
+    "END_TIME": "وقت الانتهاء",
+    "INVITE_MEMBERS": "دعوة الأعضاء",
+    "SELECT_MEMBERS_PLACEHOLDER": "اختر أعضاء الفريق للدعوة...",
+    "SELECT_MULTIPLE_HINT": "اضغط مع الاستمرار على Ctrl أو Cmd لاختيار أكثر من عضو",
+    "SUBMITTING": "جارٍ إنشاء الحجز...",
+    "SUBMIT": "تأكيد الحجز",
+    "RESET": "إعادة تعيين",
+    "BACK": "← العودة إلى حجوزاتي",
+    "NO_DEPARTMENTS": "لا توجد أقسام متاحة"
+  },
+ "BOOKINGS": {
+    "LIST_TITLE": "حجوزات قاعات الاجتماعات",
+    "LIST_SUBTITLE": "عرض جميع أنشطة حجز قاعات الاجتماعات المجدولة.",
+    "NEW": "طلب تغيير",
+    "STATUS_CONFIRMED": "مؤكد",
+    "CANCEL": "إلغاء الحجز",
+    "PARTICIPANTS": "المشاركون",
+    "TOTAL": "الإجمالي",
+    "ROOM_REFERENCE": "مرجع القاعة",
+    "EMPTY_TITLE": "لا توجد حجوزات",
+    "EMPTY_SUBTITLE": "ابدأ بإنشاء جدول اجتماع جديد."
+  },
+  "ROOMS": {
+    "TITLE": "متابعة طلبات التغيير",
+    "ADD_ROOM": "إضافة قاعة",
+    "SEATS": "مقاعد",
+    "FLOOR": "الدور",
+    "BOOK_ROOM": "حجز القاعة",
+    "LOCATION": "الموقع"
+  },
+
+  "BUTTON": {
+    "LOGOUT": "تسجيل الخروج",
+    "UPDATE": "تحديث",
+    "DELETE": "حذف",
+    "CONFIRM": "تأكيد",
+    "CANCEL": "إلغاء",
+    "DELETE_CONFIRM_MSG": "هل أنت متأكد أنك تريد حذف هذا العنصر؟",
+    "DELETE_TITLE": "تأكيد الحذف"
+  },
+  "NOT_AUTHORIZED": {
+    "TITLE": "تم رفض الوصول",
+    "DESCRIPTION": "عذراً! ليس لديك الصلاحيات اللازمة لعرض هذه الصفحة. قد تكون جلستك قد انتهت أو أن حسابك يفتقر إلى حقوق الوصول.",
+    "RETRY_BUTTON": "إعادة المحاولة / تسجيل الدخول",
+    "HOME_BUTTON": "العودة للرئيسية",
+    "SUPPORT_TEXT": "إذا كنت تعتقد أن هذا خطأ، يرجى الاتصال بمسؤول النظام."
+  }
+}

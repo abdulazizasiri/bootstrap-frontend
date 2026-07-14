@@ -1,0 +1,147 @@
+<div class="flex flex-col min-h-screen lg:flex-row bg-gray-50">
+  <!-- Mobile Header -->
+  <div class="flex items-center justify-between p-4 bg-white shadow-sm lg:hidden">
+    <h2 class="text-xl font-bold text-secondary">{{ 'APP.TITLE' | translate }}</h2>
+    <button
+      (click)="toggleMobileMenu()"
+      class="p-2 transition-colors rounded-lg hover:bg-gray-100">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Sidebar -->
+  <aside
+    [class.hidden]="!mobileMenuOpen && !isLargeScreen"
+    [class.flex]="mobileMenuOpen || isLargeScreen"
+    class="flex-col p-6 shadow-lg bg-primary lg:w-64 lg:flex">
+     <a routerLink="/" class="header-logo" >
+        <img src="/assets/images/logo.png" alt="Logo">
+      </a>
+   <div class="my-5"> <h2 class="hidden mb-2 text-2xl font-bold text-secondary lg:block">{{ 'APP.TITLE' | translate }}</h2></div>
+
+    <!-- User Info -->
+    <!-- <div class="p-3 mb-6 rounded-lg bg-blue-50">
+         <a (click)="toggleLanguage()" class="cursor-pointer text-muted-link language">
+              <i class="bi bi-translate me-1"></i>
+              <span class="fw-bold fs-5 text-capitalize">{{ content?.language }}</span>
+            </a>
+      <p class="text-sm font-medium text-blue-800">
+        {{ authService.getUserRole() === 'ROLE_ADMIN' ? 'Administrator' : 'User' }}
+      </p>
+      <p class="mt-1 text-xs text-secondary">
+        {{ authService.getUserRole() === 'ROLE_ADMIN' ? 'Full access' : 'Book rooms only' }}
+      </p>
+    </div> -->
+
+    <!-- Navigation Section -->
+    <nav class="flex-1 space-y-2">
+      <!-- My Bookings / All Bookings -->
+      <!-- <a
+        routerLink="/dashboard/bookings"
+        routerLinkActive="bg-blue-50 text-blue-600 font-semibold lg:border-r-2 border-blue-600"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="block p-3 transition-colors duration-200 rounded-lg text-secondary "
+        (click)="closeMobileMenu()">
+        {{ authService.isAdmin() ? 'All Bookings' : 'My Bookings' }}
+      </a> -->
+
+      <!-- New Booking - For users only -->
+      <!-- *ngIf="!authService.isAdmin()" -->
+
+
+      <a
+        routerLink="/dashboard/bookings/new"
+        routerLinkActive="bg-blue-50 text-blue-600 font-semibold lg:border-r-2 border-blue-600"
+        class="block p-3 transition-colors duration-200 rounded-lg text-secondary hover:bg-gray-100"
+        (click)="closeMobileMenu()">
+        <i class="bi bi-plus-circle"></i> {{ 'NAV.NEW_BOOKING' | translate }}
+
+      </a>
+
+      <!-- Browse Rooms - For regular users -->
+      <!-- *ngIf="!authService.isAdmin()" -->
+      <a
+        routerLink="/dashboard/"
+        routerLinkActive="bg-blue-50 text-blue-600 font-semibold lg:border-r-2 border-blue-600"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="block p-3 transition-colors duration-200 rounded-lg text-secondary hover:bg-gray-100"
+        (click)="closeMobileMenu()">
+        <i class="bi bi-building"></i>  {{ 'NAV.MANAGE_CHANGE_REQUEST' | translate }}
+
+      </a>
+
+<!--      <a-->
+<!--        routerLink="/dashboard/bookings/new"-->
+<!--        routerLinkActive="bg-blue-50 text-blue-600 font-semibold lg:border-r-2 border-blue-600"-->
+<!--        class="block p-3 transition-colors duration-200 rounded-lg text-secondary hover:bg-gray-100"-->
+<!--        (click)="closeMobileMenu()">-->
+<!--        <i class="bi bi-plus-circle"></i> {{ 'NAV.NEW_DASHBOARD' | translate }}-->
+
+<!--      </a>-->
+
+      <!-- Manage Rooms - For admins only -->
+      <!-- *ngIf="authService.isAdmin()" -->
+      <a
+        routerLink="/dashboard/bookings/manage"
+        routerLinkActive="bg-blue-50 text-blue-600 font-semibold lg:border-r-2 border-blue-600"
+        class="block p-3 transition-colors duration-200 rounded-lg text-secondary hover:bg-gray-100"
+        (click)="closeMobileMenu()">
+         <i class="bi bi-calendar-event"></i> {{ 'NAV.MANAGE_BOOKINGS' | translate }}
+      </a>
+
+      <!-- <a
+        routerLink="/dashboard/bookings/manage"
+        routerLinkActive="bg-blue-50 text-blue-600 font-semibold lg:border-r-2 border-blue-600"
+        class="block p-3 mt-10 transition-colors duration-200 rounded-lg text-secondary hover:bg-gray-100"
+        (click)="changeLanguage()">
+         <i class="bi bi-translate me-1"></i> {{ 'NAV.LANGUAGE' | translate }}
+      </a> -->
+
+       <!-- <a (click)="changeLanguage()" class="cursor-pointer text-muted-link language">
+              <i class="bi bi-translate me-1"></i>
+              <span class="fw-bold fs-5 text-capitalize">{{ 'NAV.LANGUAGE' | translate }}</span>
+      </a> -->
+<!--      <div class=" mt-11">-->
+<!--       <a-->
+<!--        class="block p-3 mt-10 transition-colors duration-200 rounded-lg text-secondary hover:bg-gray-100"-->
+<!--        (click)="changeLanguage()">-->
+<!--         <i class="bi bi-translate me-1"></i> {{ 'NAV.LANGUAGE' | translate }}-->
+<!--      </a>-->
+
+<!--    </div>-->
+
+    </nav>
+
+    <!-- Logout Button -->
+    <!-- <button
+      (click)="logout()"
+      class="flex items-center justify-center w-full px-4 py-2 mt-8 text-white transition-colors duration-200 bg-red-500 rounded-lg hover:bg-red-600">
+      <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+      </svg>
+      {{ 'BUTTON.LOGOUT' | translate }}
+    </button> -->
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-4 lg:p-8">
+    <!-- Header - Simplified without action buttons -->
+    <div class="p-4 mb-6 bg-white rounded-lg shadow-sm lg:p-6">
+      <div>
+        <h1 class="mb-2 text-2xl font-bold text-gray-800 lg:text-3xl">
+          {{ 'APP.WELCOME_TITLE' | translate }}
+        </h1>
+        <p class="text-sm text-gray-600 lg:text-base">
+          <!-- {{ authService.isAdmin() ?
+             'Manage rooms and oversee all bookings' :
+             'Book conference rooms for your bookings'
+          }} -->
+        </p>
+      </div>
+    </div>
+
+    <router-outlet></router-outlet>
+  </main>
+</div>
