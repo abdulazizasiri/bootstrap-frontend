@@ -111,15 +111,14 @@ this.msalBroadcastService.inProgress$
   }
 
   performTokenExchange() {
-    // debugger;
- let activeAccount = this.msalService.instance.getActiveAccount();
+    let activeAccount = this.msalService.instance.getActiveAccount();
 
-  // If no active account, check if any account exists and set it
-  if (!activeAccount && this.msalService.instance.getAllAccounts().length > 0) {
-    const accounts = this.msalService.instance.getAllAccounts();
-    this.msalService.instance.setActiveAccount(accounts[0]);
-    activeAccount = accounts[0];
-  }
+    if (!activeAccount && this.msalService.instance.getAllAccounts().length > 0) {
+      const accounts = this.msalService.instance.getAllAccounts();
+      this.msalService.instance.setActiveAccount(accounts[0]);
+      activeAccount = accounts[0];
+    }
+
     if (activeAccount) {
       this.activeAccount = activeAccount;
       this.loginService.name = activeAccount.name;
@@ -128,17 +127,16 @@ this.msalBroadcastService.inProgress$
         ...this.consentScopes,
         account: activeAccount
       };
-// debugger;
-      // Get Azure Token Silently
+
+      // Get Azure Tokens Silently
       this.msalService.acquireTokenSilent(tokenRequest).subscribe({
         next: (result) => {
-          // Use idToken for identity verification on backend
-          console.log("result Token",);
-
-          const azureToken = result.idToken;
-
-          // POST to your Backend verify-token endpoint
-          this.http.post<any>(`${environment.apiUrl}/auth/verify-token`, { token: azureToken })
+          const identityToken = result.idToken;
+          const graphAccessToken = result.accessToken;
+          this.http.post<any>(`${environment.apiUrl}/auth/verify-token`, {
+            token: identityToken,
+            graphToken: graphAccessToken // Pass this along for your Graph snippet
+          })
             .subscribe({
               next: (beResponse) => {
                 localStorage.setItem('be_token', beResponse.accessToken);

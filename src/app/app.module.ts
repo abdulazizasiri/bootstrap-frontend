@@ -17,7 +17,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { ErrorHandlerService } from '@core/interceptors/error-handler.interceptor';
 import { LoadingInterceptor } from '@core/interceptors/loading.interceptor';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { RoomListComponent } from './components/rooms/room-list/room-list.component';
+// import { RoomListComponent } from './components/rooms/room-list/room-list.component';
 import { CalendarModule } from 'primeng/calendar';
 import { ChangeRequestFromComponent } from './components/booking/CR-form/change-request-from.component';
 import { BookingListComponent } from './components/booking/booking-list/booking-list.component';
@@ -41,7 +41,7 @@ const _scopes = ['User.Read', 'api://cbaae123-def3-42cd-b1b8-ef44f8182c3c/api.re
     AppComponent,
     SpinnerComponent,
     DashboardComponent,
-    RoomListComponent,
+    // RoomListComponent,
     ChangeRequestFromComponent,
     BookingListComponent,
 RoomManagementComponent,

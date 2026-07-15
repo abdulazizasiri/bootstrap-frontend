@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MsalGuard } from '@azure/msal-angular';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { RoomListComponent } from './components/rooms/room-list/room-list.component';
+// import { RoomListComponent } from './components/rooms/room-list/room-list.component';
 import { Constants } from './models/constants';
 import { ChangeRequestFromComponent } from './components/booking/CR-form/change-request-from.component';
 import { BookingListComponent } from './components/booking/booking-list/booking-list.component';
@@ -14,7 +14,7 @@ import { BackendAuthGuard } from '@core/guards/backend-auth.guard';
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
 
-  { path: 'login', component: RoomListComponent },
+  // { path: 'login', component: RoomListComponent },
 
   {
     path: 'dashboard',
@@ -22,7 +22,7 @@ const routes: Routes = [
     canActivate: [MsalGuard,BackendAuthGuard],
     children: [
       { path: '', redirectTo: 'rooms', pathMatch: 'full' },
-      { path: 'rooms', component: RoomListComponent },
+      // { path: 'rooms', component: RoomListComponent },
       { path: 'bookings/manage', component: BookingListComponent },
       { path: 'bookings/new', component: ChangeRequestFromComponent },
       { path: 'bookings/edit/:id', component: ChangeRequestFromComponent }

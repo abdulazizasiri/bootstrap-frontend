@@ -41,7 +41,10 @@ export class LoginService {
     this.name = '';
     this.userName = '';
     this.displayName = '';
-    localStorage.removeItem('token');
+    localStorage.removeItem('be_token');
     localStorage.removeItem('userProfile');
+    localStorage.clear();
+    window.location.reload();
+
   }
 }

@@ -71,62 +71,62 @@ export const ApiUrls = {
 };
 
 
-export const AnonymousUrls = [ //Without Authorization Header
-    ApiUrls.Identity.Register,
-    ApiUrls.Identity.Login,
-    ApiUrls.Identity.ForgetPasswordRequest,
-    ApiUrls.Identity.ResetPassword,
-    ApiUrls.Identity.ResendOTP,
-    ApiUrls.Identity.TwoStepVerification,
-    ApiUrls.Identity.ValidateInternalUserToken,
-    ApiUrls.Identity.ChangeEmail,
-    ApiUrls.Identity.ChangeEmailVerification
-];
-
-export const ExternalUserAuthenticatedUrls = [ //External User APIs
-    ApiUrls.Identity.ChangePassword,
-    ApiUrls.Users.UserInfo,
-];
-
-export const InternalUserAuthenticatedURLs = [ //Internal User APIs
-    ApiUrls.Invitation.InviteExpert,
-    ApiUrls.Invitation.GetAllExpertsInvitations,
-    ApiUrls.Roles.AddRole,
-    ApiUrls.Roles.GetRoleById,
-    ApiUrls.Roles.SearchRoles,
-    ApiUrls.Roles.UpdateRole,
-    ApiUrls.Roles.AddRoleGroups,
-    ApiUrls.Roles.AddRolePages,
-    ApiUrls.Roles.DeleteRole,
-    ApiUrls.Roles.GetPermissions,
-    ApiUrls.Roles.ActivateRole,
-    ApiUrls.Pages.AddPage,
-    ApiUrls.Pages.UpdatePage,
-    ApiUrls.Pages.SearchPages,
-    ApiUrls.Pages.GetPageById,
-    ApiUrls.Pages.GetCurrentUserPages,
-    ApiUrls.Groups.AddGroup,
-    ApiUrls.Groups.UpdateGroup,
-    ApiUrls.Groups.SearchGroups,
-    ApiUrls.Groups.GetGroupById,
-    ApiUrls.Groups.DeleteGroup,
-    ApiUrls.Groups.ActivateGroup,
-    ApiUrls.Identity.AddInternalUser,
-    ApiUrls.Identity.UpdateInternalUserInfo,
-    ApiUrls.Identity.DisableInternalUser,
-    ApiUrls.Identity.ChangeUserGroup,
-    ApiUrls.Dashboard.GetInternalSystemTotalRecords,
-    ApiUrls.Bookings.updateBooking,
-    ApiUrls.Bookings.cancelBooking,
-    ApiUrls.Bookings.GetAllBookings,
-];
-
-export const ExternalAndEnternalURLS = [ //Internal and External User APIs
-    ApiUrls.Users.GetInternalUsers,
-    ApiUrls.Bookings.getBookingById,
-]
-
-
-export const IgnoreGlobalErrorUrls = [ //Ignore global error message
-];
+// export const AnonymousUrls = [ //Without Authorization Header
+//     ApiUrls.Identity.Register,
+//     ApiUrls.Identity.Login,
+//     ApiUrls.Identity.ForgetPasswordRequest,
+//     ApiUrls.Identity.ResetPassword,
+//     ApiUrls.Identity.ResendOTP,
+//     ApiUrls.Identity.TwoStepVerification,
+//     ApiUrls.Identity.ValidateInternalUserToken,
+//     ApiUrls.Identity.ChangeEmail,
+//     ApiUrls.Identity.ChangeEmailVerification
+// ];
+//
+// export const ExternalUserAuthenticatedUrls = [ //External User APIs
+//     ApiUrls.Identity.ChangePassword,
+//     ApiUrls.Users.UserInfo,
+// ];
+//
+// export const InternalUserAuthenticatedURLs = [ //Internal User APIs
+//     ApiUrls.Invitation.InviteExpert,
+//     ApiUrls.Invitation.GetAllExpertsInvitations,
+//     ApiUrls.Roles.AddRole,
+//     ApiUrls.Roles.GetRoleById,
+//     ApiUrls.Roles.SearchRoles,
+//     ApiUrls.Roles.UpdateRole,
+//     ApiUrls.Roles.AddRoleGroups,
+//     ApiUrls.Roles.AddRolePages,
+//     ApiUrls.Roles.DeleteRole,
+//     ApiUrls.Roles.GetPermissions,
+//     ApiUrls.Roles.ActivateRole,
+//     ApiUrls.Pages.AddPage,
+//     ApiUrls.Pages.UpdatePage,
+//     ApiUrls.Pages.SearchPages,
+//     ApiUrls.Pages.GetPageById,
+//     ApiUrls.Pages.GetCurrentUserPages,
+//     ApiUrls.Groups.AddGroup,
+//     ApiUrls.Groups.UpdateGroup,
+//     ApiUrls.Groups.SearchGroups,
+//     ApiUrls.Groups.GetGroupById,
+//     ApiUrls.Groups.DeleteGroup,
+//     ApiUrls.Groups.ActivateGroup,
+//     ApiUrls.Identity.AddInternalUser,
+//     ApiUrls.Identity.UpdateInternalUserInfo,
+//     ApiUrls.Identity.DisableInternalUser,
+//     ApiUrls.Identity.ChangeUserGroup,
+//     ApiUrls.Dashboard.GetInternalSystemTotalRecords,
+//     ApiUrls.Bookings.updateBooking,
+//     ApiUrls.Bookings.cancelBooking,
+//     ApiUrls.Bookings.GetAllBookings,
+// ];
+//
+// export const ExternalAndEnternalURLS = [ //Internal and External User APIs
+//     ApiUrls.Users.GetInternalUsers,
+//     ApiUrls.Bookings.getBookingById,
+// ]
+//
+//
+// export const IgnoreGlobalErrorUrls = [ //Ignore global error message
+// ];
 
