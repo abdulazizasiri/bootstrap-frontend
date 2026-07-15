@@ -162,12 +162,12 @@ this.msalBroadcastService.inProgress$
   }
 
   handleTitle() {
-    this.translateService.get('dsc-title').subscribe((translatedTitle: string) => {
+    this.translateService.get('Automation-Tool').subscribe((translatedTitle: string) => {
       this.titleService.setTitle(translatedTitle);
     });
 
     this.translateService.onLangChange.pipe(takeUntil(this._destroying$)).subscribe(() => {
-      this.translateService.get('dsc-title').subscribe(title => this.titleService.setTitle(title));
+      this.translateService.get('Automation-Tool').subscribe(title => this.titleService.setTitle(title));
     });
   }
 
