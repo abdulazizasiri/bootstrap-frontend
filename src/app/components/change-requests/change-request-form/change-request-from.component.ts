@@ -1,15 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BookingService } from '../../../services/booking.service';
-import { RoomService } from '../../../services/room.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpErrorResponse } from '@angular/common/http';
-import { Observable, Subscription } from 'rxjs';
-import { IRoomListDto } from '../../../models/room.model';
-import { UserService } from '../../../services/user.service';
-import { IUserDto } from '../../../models/user';
-import { LanguageService } from '../../../services/language.service';
-import { AuthService } from '../../../services/Auth.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {LanguageService } from '../../../services/language.service';
+import {UserDetailsService} from '../../../services/user-details.service';
 
 type FileKind = 'pdf' | 'word' | 'excel' | 'unknown';
 
@@ -24,6 +16,7 @@ export class ChangeRequestFromComponent implements OnInit {
   currentLang = 'ar';
   loading = false;
   error = '';
+  currentUser: any = {};
 
   // ---- Attachments (optional) ----
   readonly maxAttachments = 3;
@@ -49,6 +42,7 @@ export class ChangeRequestFromComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private translate: LanguageService,
+    private userDetailsService: UserDetailsService,
   ) {}
 
   ngOnInit(): void {
@@ -67,6 +61,8 @@ export class ChangeRequestFromComponent implements OnInit {
       // NOTE: attachments are intentionally NOT a form control — they are optional
       // and managed via the attachments array below.
     });
+    this.currentUser = this.userDetailsService.currentUser();
+    console.log("Current Users: ", this.currentUser)
   }
 
   // ---- Getters used by the template ----

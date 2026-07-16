@@ -51,15 +51,12 @@
         <label class="block mb-2 font-medium text-gray-700" [class.text-right]="currentLang === 'ar'">
           {{ 'CHANGE_REQUEST.REQUESTING_DEPARTMENT' | translate }}
         </label>
-        <ng-select formControlName="departmentId"
-                   [items]="departments"
-                   [bindLabel]="currentLang === 'ar' ? 'nameAr' : 'nameEn'"
-                   bindValue="departmentId"
-                   [searchable]="true" [clearable]="true"
-                   placeholder="{{ 'CHANGE_REQUEST.DEPARTMENT_PLACEHOLDER' | translate }}"
-                   class="w-full"
-                   [class.is-invalid]="departmentId?.invalid && (departmentId?.dirty || departmentId?.touched)">
-        </ng-select>
+        <input type="text"
+               [value]="currentUser?.department"
+               readonly
+               placeholder="{{ 'CHANGE_REQUEST.DEPARTMENT_PLACEHOLDER' | translate }}"
+               class="w-full form-control bg-gray-100 cursor-not-allowed focus:outline-none focus:border-transparent"
+               [class.is-invalid]="departmentId?.invalid && (departmentId?.dirty || departmentId?.touched)" />
         <div *ngIf="departmentId?.invalid && (departmentId?.dirty || departmentId?.touched)"
              class="mt-1 text-sm text-red-500" [class.text-right]="currentLang === 'ar'">
           {{ getErrorMessage('departmentId') }}

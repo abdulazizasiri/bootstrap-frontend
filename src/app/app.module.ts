@@ -19,15 +19,14 @@ import { LoadingInterceptor } from '@core/interceptors/loading.interceptor';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 // import { RoomListComponent } from './components/rooms/room-list/room-list.component';
 import { CalendarModule } from 'primeng/calendar';
-import { ChangeRequestFromComponent } from './components/booking/CR-form/change-request-from.component';
-import { BookingListComponent } from './components/booking/booking-list/booking-list.component';
-import { RoomManagementComponent } from './components/room-management/room-management.component';
+import { ChangeRequestFromComponent } from './components/change-requests/change-request-form/change-request-from.component';
+import { ChangeRequestsListComponent } from './components/change-requests/change-requests-list/change-requests-list.component';
+import { ChangeRequestsManagementComponent } from './components/change-request-management/change-requests-management.component';
 import { InteractionType, PublicClientApplication } from '@azure/msal-browser';
-import { MSAL_INTERCEPTOR_CONFIG, MsalGuardConfiguration, MsalInterceptorConfiguration, MsalModule, MsalRedirectComponent, MsalService } from '@azure/msal-angular';
+import { MsalGuardConfiguration, MsalModule } from '@azure/msal-angular';
 import { NotAuthorizedComponent } from '@shared/pages/not-authorized/not-authorized.component';
 import { NotFoundComponent } from '@shared/pages/not-found/not-found.component';
 import { ForbiddenComponent } from '@shared/pages/forbidden/forbidden.component';
-import { BackendTokenInterceptor } from '@core/interceptors/backend-token.interceptor';
 import { AuthInterceptor } from '@core/interceptors/Auth.interceptor';
 
 const isIE =
@@ -43,8 +42,8 @@ const _scopes = ['User.Read', 'api://cbaae123-def3-42cd-b1b8-ef44f8182c3c/api.re
     DashboardComponent,
     // RoomListComponent,
     ChangeRequestFromComponent,
-    BookingListComponent,
-RoomManagementComponent,
+    ChangeRequestsListComponent,
+ChangeRequestsManagementComponent,
 NotAuthorizedComponent,
 NotFoundComponent,
 ForbiddenComponent

@@ -21,6 +21,7 @@ import {
 } from '@azure/msal-browser';
 import { ApiUrls } from './services/apis';
 import { environment } from '@environments/environment';
+import {UserDetailsService} from './services/user-details.service';
 
 @Component({
   selector: 'app-root',
@@ -50,7 +51,8 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     private router: Router,
     private renderer: Renderer2,
     private titleService: Title,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private userDetailsService: UserDetailsService
   ) {}
 
   ngOnInit(): void {
@@ -140,6 +142,7 @@ this.msalBroadcastService.inProgress$
             .subscribe({
               next: (beResponse) => {
                 localStorage.setItem('be_token', beResponse.accessToken);
+                this.userDetailsService.setUserFromToken(beResponse.accessToken);
                 this.isLoading = false;
                 console.log("Backend Token Exchange Successful");
                 this.router.navigate(['/dashboard']);

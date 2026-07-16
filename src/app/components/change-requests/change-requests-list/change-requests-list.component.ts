@@ -2,19 +2,19 @@ import { Component, OnInit } from '@angular/core';
 // import { IBookingListDto } from '../../../models/booking.model';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
-import { BookingService } from 'src/app/services/booking.service';
-import {  IBookMeetingDto, IUpdateBookingDateDto } from 'src/app/models/booking.model';
-import { LoginService } from 'src/app/services/login.service';
+import { BookingService } from '../../../services/booking.service';
+import {  IBookMeetingDto, IUpdateBookingDateDto } from '../../../models/booking.model';
+import { LoginService } from '../../../services/login.service';
 import { Subscription } from 'rxjs';
-import { LanguageService } from 'src/app/services/language.service';
-import { AuthService } from 'src/app/services/Auth.service';
+import { LanguageService } from '../../../services/language.service';
+import { AuthService } from '../../../services/Auth.service';
 
 @Component({
-  selector: 'app-booking-list',
-  templateUrl: './booking-list.component.html',
+  selector: 'app-change-requests-list',
+  templateUrl: './change-requests-list.component.html',
   standalone : false
 })
-export class BookingListComponent implements OnInit {
+export class ChangeRequestsListComponent implements OnInit {
 
   bookings: IBookMeetingDto[] = [];
   loading = true;

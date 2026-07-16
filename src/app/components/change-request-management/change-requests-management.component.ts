@@ -2,15 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { RoomService } from '../../services/room.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IRoomListDto } from 'src/app/models/room.model';
+import { IRoomListDto } from '../../models/room.model';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-room-management',
-  templateUrl: './room-management.component.html',
+  selector: 'app-change-requests-management',
+  templateUrl: './change-requests-management.component.html',
   standalone:false
 })
-export class RoomManagementComponent implements OnInit {
+export class ChangeRequestsManagementComponent implements OnInit {
   rooms: IRoomListDto[] = [];
   loading = true;
   error = '';
