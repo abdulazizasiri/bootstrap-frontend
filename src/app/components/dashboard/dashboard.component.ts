@@ -7,6 +7,7 @@ import { RoomService } from 'src/app/services/room.service';
 import { Subscription } from 'rxjs';
 import { IRoomListDto } from 'src/app/models/room.model';
 import { LanguageService } from 'src/app/services/language.service';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -26,6 +27,7 @@ export class DashboardComponent implements OnInit {
   constructor(
     public authService: LoginService,
      private router: Router,
+     private userService: UserService,
      private languageService: LanguageService,
     private renderer: Renderer2,
 ) {
@@ -43,6 +45,9 @@ ngOnInit() {
   this.checkScreenSize();
  this.checkScreenSize();
   this.language = this.languageService.getLangInitially() || 'en';
+  // this.userService.getAllUsers().subscribe(data => {
+  //
+  // })
 }
 
 changeLanguage() {

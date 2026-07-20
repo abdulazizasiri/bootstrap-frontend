@@ -107,7 +107,6 @@ this.msalBroadcastService.inProgress$
     if (accounts.length > 0) {
       this.msalService.instance.setActiveAccount(accounts[0]);
     } else {
-      // If no account is present, redirect to login
       this.msalService.loginRedirect(this.consentScopes);
     }
   }

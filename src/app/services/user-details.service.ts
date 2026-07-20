@@ -8,6 +8,8 @@ export interface UserSession {
   role: string;
   department?: string;
   jobTitle?: string;
+  managerName?: string;
+  managerEmail?: string;
 }
 
 @Injectable({
@@ -41,7 +43,9 @@ export class UserDetailsService {
         email: decoded.email,
         fullname: decoded.unique_name ||  decoded.fullname,
         role: decoded.role, // Extracted from backend JWT
-        department: decoded.department
+        department: decoded.department,
+        managerEmail: decoded?.managerEmail,
+        managerName: decoded?.managerName
       };
 
       this.currentUserSignal.set(session);

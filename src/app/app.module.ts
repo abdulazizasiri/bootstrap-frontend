@@ -10,12 +10,12 @@ import { PublicClientApplication, InteractionType } from '@azure/msal-browser';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { CalendarModule } from 'angular-calendar';
+import { CalendarModule } from 'primeng/calendar';
 import { ToastrModule } from 'ngx-toastr';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { environment } from '../environments/environment';
+import { environment } from '@environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -28,9 +28,9 @@ import { NotAuthorizedComponent } from '@shared/pages/not-authorized/not-authori
 import { NotFoundComponent } from '@shared/pages/not-found/not-found.component';
 import { ForbiddenComponent } from '@shared/pages/forbidden/forbidden.component';
 
-import { LoadingInterceptor } from './interceptors/loading.interceptor';
-import { AuthInterceptor } from './interceptors/auth.interceptor';
-import { ErrorHandlerService } from './interceptors/error-handler.service'; // consider renaming to ErrorInterceptor
+import { LoadingInterceptor } from '@core/interceptors/loading.interceptor';
+import { AuthInterceptor } from '@core/interceptors/Auth.interceptor';
+import { ErrorHandlerService } from '@core/interceptors/error-handler.interceptor'; // consider renaming to ErrorInterceptor
 
 // NOTE: adjust the import paths above to match your actual folder structure.
 

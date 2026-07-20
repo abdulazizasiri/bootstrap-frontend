@@ -9,8 +9,8 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
-import { environment } from '../../environments/environment';
+import { AuthService } from 'src/app/services/Auth.service';
+import { environment } from '@environments/environment';
 
 /**
  * Attaches the backend JWT to outgoing requests targeting OUR API only,
