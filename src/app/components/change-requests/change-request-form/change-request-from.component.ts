@@ -57,12 +57,31 @@ export class ChangeRequestFromComponent implements OnInit {
       requestTypeId: [null, Validators.required],
       systemId: [null, Validators.required],
       inOperationalPlan: [false],
+      isManagerInvolved: [false],
+      managerName: [''],
+      managerEmail: [''],
       actionDescription: ['', [Validators.required, Validators.maxLength(1000)]],
       // NOTE: attachments are intentionally NOT a form control — they are optional
       // and managed via the attachments array below.
     });
     this.currentUser = this.userDetailsService.currentUser();
     console.log("Current Users: ", this.currentUser)
+  }
+
+  onManagerToggle(): void {
+    const newValue = !this.isManagerInvolved?.value;
+    this.isManagerInvolved?.setValue(newValue);
+
+    if (newValue) {
+      // Fill the hidden form controls so the values reach the backend on submit
+      this.changeRequestForm.patchValue({
+        managerName: this.currentUser?.managerName ?? '',
+        managerEmail: this.currentUser?.managerEmail ?? '',
+      });
+    } else {
+      // Clear them so stale manager data isn't submitted after toggling off
+      this.changeRequestForm.patchValue({ managerName: '', managerEmail: '' });
+    }
   }
 
   // ---- Getters used by the template ----
@@ -73,6 +92,7 @@ export class ChangeRequestFromComponent implements OnInit {
   get systemId() { return this.changeRequestForm.get('systemId'); }
   get inOperationalPlan() { return this.changeRequestForm.get('inOperationalPlan'); }
   get actionDescription() { return this.changeRequestForm.get('actionDescription'); }
+  get isManagerInvolved() { return this.changeRequestForm.get('isManagerInvolved'); }
 
   getTodayDate(): string {
     return new Date().toISOString().split('T')[0];
@@ -162,34 +182,35 @@ export class ChangeRequestFromComponent implements OnInit {
     return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
   }
 
-  // =====================================================
 
   submit(): void {
     if (this.changeRequestForm.invalid) {
-      this.changeRequestForm.markAllAsTouched();
-      return;
+      if (this.changeRequestForm.invalid) {
+        this.changeRequestForm.markAllAsTouched();
+        return;
+      }
+
+      this.loading = true;
+      this.error = '';
+
+      const formData = new FormData();
+      const value = this.changeRequestForm.getRawValue();
+
+      Object.keys(value).forEach(key => {
+        formData.append(key, value[key] ?? '');
+      });
+
+      // Attachments are optional — appended only if the user added any
+      this.attachments.forEach(file => formData.append('attachments', file, file.name));
+
+      // TODO: replace with your service call, e.g.:
+      // this.changeRequestService.create(formData).subscribe({ ... });
+      this.loading = false;
     }
-
-    this.loading = true;
-    this.error = '';
-
-    const formData = new FormData();
-    const value = this.changeRequestForm.getRawValue();
-
-    Object.keys(value).forEach(key => {
-      formData.append(key, value[key] ?? '');
-    });
-
-    // Attachments are optional — appended only if the user added any
-    this.attachments.forEach(file => formData.append('attachments', file, file.name));
-
-    // TODO: replace with your service call, e.g.:
-    // this.changeRequestService.create(formData).subscribe({ ... });
-    this.loading = false;
   }
-
   onReset(): void {
     this.changeRequestForm.reset({ inOperationalPlan: false });
+    this.changeRequestForm.reset({ isManagerInvoloved: false });
     this.attachments = [];
     this.attachmentError = '';
     this.error = '';

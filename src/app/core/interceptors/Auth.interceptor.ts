@@ -1,33 +1,55 @@
 import { Injectable } from '@angular/core';
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { environment } from '@environments/environment';
-import { AuthService } from 'src/app/services/Auth.service';
+import {
+  HttpInterceptor,
+  HttpRequest,
+  HttpHandler,
+  HttpEvent,
+  HttpErrorResponse,
+} from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+import { environment } from '../../environments/environment';
 
+/**
+ * Attaches the backend JWT to outgoing requests targeting OUR API only,
+ * and handles 401 responses by clearing the session and redirecting to login.
+ *
+ * Replaces the old AuthInterceptor + BackendTokenInterceptor pair.
+ */
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+  ) {}
 
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    // Token access goes through the service (single source of truth for storage)
+    const token = this.authService.getBackendToken();
 
-intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-  // 1. Grab your custom backend token
-  const token = localStorage.getItem('be_token');
+    // Exact, environment-aware match — never attach our JWT to third-party URLs
+    const isBackendRequest = req.url.startsWith(environment.apiUrl);
 
-  // 2. Define which URLs should get this token
-  const isBackendRequest = req.url.includes('localhost:7073') || req.url.includes(environment.apiUrl);
-  const isVerifyRequest = req.url.includes('/auth/verify-token');
+    // The token-exchange call itself must not carry our backend JWT
+    const isVerifyRequest = req.url.includes('/auth/verify-token');
 
-  // 3. Attach only if it's our backend and NOT the initial exchange call
-  if (token && isBackendRequest && !isVerifyRequest) {
-    req = req.clone({
-      setHeaders: {
-        Authorization: `Bearer ${token}` // This matches your curl -H "authorization: Bearer ..."
-      }
-    });
+    if (token && isBackendRequest && !isVerifyRequest) {
+      req = req.clone({
+        setHeaders: { Authorization: `Bearer ${token}` },
+      });
+    }
+
+    return next.handle(req).pipe(
+      catchError((error: HttpErrorResponse) => {
+        // Backend rejected the token (expired/invalid) → end session cleanly
+        if (error.status === 401 && isBackendRequest && !isVerifyRequest) {
+          this.authService.logout();
+          this.router.navigate(['/login']);
+        }
+        return throwError(() => error);
+      }),
+    );
   }
-
-  return next.handle(req);
-}
-
-
 }

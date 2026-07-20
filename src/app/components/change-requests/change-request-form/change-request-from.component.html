@@ -22,15 +22,15 @@
 
     <!-- Row 1: Request Number / Request Date -->
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-      <div>
-        <label class="block mb-2 font-medium text-gray-700" [class.text-right]="currentLang === 'ar'">
-          {{ 'CHANGE_REQUEST.REQUEST_NUMBER' | translate }}
-        </label>
-        <input type="text" formControlName="requestNumber" readonly
-               class="w-full p-3 text-gray-500 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none"
-               [class.text-right]="currentLang === 'ar'"
-               placeholder="AR01" />
-      </div>
+<!--      <div>-->
+<!--        <label class="block mb-2 font-medium text-gray-700" [class.text-right]="currentLang === 'ar'">-->
+<!--          {{ 'CHANGE_REQUEST.REQUEST_NUMBER' | translate }}-->
+<!--        </label>-->
+<!--        <input type="text" formControlName="requestNumber" readonly-->
+<!--               class="w-full p-3 text-gray-500 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none"-->
+<!--               [class.text-right]="currentLang === 'ar'"-->
+<!--               placeholder="AR01" />-->
+<!--      </div>-->
 
       <div>
         <label class="block mb-2 font-medium text-gray-700" [class.text-right]="currentLang === 'ar'">
@@ -53,36 +53,22 @@
         </label>
         <input type="text"
                [value]="currentUser?.department"
-               readonly
-               placeholder="{{ 'CHANGE_REQUEST.DEPARTMENT_PLACEHOLDER' | translate }}"
-               class="w-full form-control bg-gray-100 cursor-not-allowed focus:outline-none focus:border-transparent"
-               [class.is-invalid]="departmentId?.invalid && (departmentId?.dirty || departmentId?.touched)" />
-        <div *ngIf="departmentId?.invalid && (departmentId?.dirty || departmentId?.touched)"
-             class="mt-1 text-sm text-red-500" [class.text-right]="currentLang === 'ar'">
-          {{ getErrorMessage('departmentId') }}
-        </div>
+               disabled
+               tabindex="-1"
+               class="w-full form-control pr-4 bg-gray-100 text-gray-600 cursor-not-allowed pointer-events-none select-none" />
       </div>
 
       <div>
         <label class="block mb-2 font-medium text-gray-700" [class.text-right]="currentLang === 'ar'">
           {{ 'CHANGE_REQUEST.REQUESTER_NAME' | translate }}
         </label>
-        <ng-select formControlName="requesterId"
-                   [items]="requesters"
-                   [bindLabel]="currentLang === 'ar' ? 'displayNameAr' : 'displayNameEn'"
-                   bindValue="userId"
-                   [searchable]="true" [clearable]="true"
-                   placeholder="{{ 'CHANGE_REQUEST.REQUESTER_PLACEHOLDER' | translate }}"
-                   class="w-full"
-                   [class.is-invalid]="requesterId?.invalid && (requesterId?.dirty || requesterId?.touched)">
-        </ng-select>
-        <div *ngIf="requesterId?.invalid && (requesterId?.dirty || requesterId?.touched)"
-             class="mt-1 text-sm text-red-500" [class.text-right]="currentLang === 'ar'">
-          {{ getErrorMessage('requesterId') }}
-        </div>
+        <input type="text"
+               [value]="currentUser?.fullname"
+               disabled
+               tabindex="-1"
+               class="w-full form-control pr-4 bg-gray-100 text-gray-600 cursor-not-allowed pointer-events-none select-none" />
       </div>
     </div>
-
     <!-- Row 3: Request Type / System -->
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
       <div>
@@ -141,6 +127,53 @@
                 : (currentLang === 'ar' ? '-translate-x-1' : 'translate-x-1')">
         </span>
       </button>
+    </div>
+
+
+    <!-- Manager involved toggle -->
+    <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg bg-gray-50"
+         [class.flex-row-reverse]="currentLang !== 'ar'">
+      <label class="font-medium text-gray-700 cursor-pointer" for="isManagerInvolved">
+        {{ 'CHANGE_REQUEST.IS_MANAGER_INVOLVED' | translate }}
+      </label>
+      <button type="button" id="isManagerInvolved" role="switch"
+              [attr.aria-checked]="isManagerInvolved?.value"
+              (click)="onManagerToggle()"
+              class="relative inline-flex h-6 transition-colors rounded-full w-11 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2"
+              [ngClass]="isManagerInvolved?.value ? 'bg-secondary' : 'bg-gray-300'">
+    <span class="inline-block w-5 h-5 mt-0.5 transition-transform transform bg-white rounded-full shadow"
+          [ngClass]="isManagerInvolved?.value
+            ? (currentLang === 'ar' ? '-translate-x-5' : 'translate-x-5')
+            : (currentLang === 'ar' ? '-translate-x-1' : 'translate-x-1')">
+    </span>
+      </button>
+    </div>
+
+    <!-- Manager fields — only rendered when toggle is ON -->
+    <div *ngIf="isManagerInvolved?.value" class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <div>
+        <label class="block mb-2 font-medium text-gray-700" [class.text-right]="currentLang === 'ar'">
+          {{ 'CHANGE_REQUEST.MANAGER_NAME' | translate }}
+        </label>
+        <input type="text"
+               [value]="currentUser?.managerName"
+               disabled
+               tabindex="-1"
+               class="w-full form-control pe-4 bg-gray-100 text-gray-600 cursor-not-allowed pointer-events-none select-none" />
+      </div>
+
+      <div>
+        <label class="block mb-2 font-medium text-gray-700" [class.text-right]="currentLang === 'ar'">
+          {{ 'CHANGE_REQUEST.MANAGER_EMAIL' | translate }}
+        </label>
+        <input type="text"
+               [value]="currentUser?.managerEmail"
+               disabled
+               tabindex="-1"
+               dir="ltr"
+               class="w-full form-control pe-4 bg-gray-100 text-gray-600 cursor-not-allowed pointer-events-none select-none"
+               [class.text-right]="currentLang === 'ar'" />
+      </div>
     </div>
 
     <!-- Description -->
