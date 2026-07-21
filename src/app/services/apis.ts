@@ -22,6 +22,7 @@ export const ApiUrls = {
     Users: {
       GetAllUsers: "Users/list",
         UserInfo: "api/Users/user-info",
+        GetManagerInfo: "users/me/manager",
         GetInternalUsers: "api/Users/internal-users",
     },
     Roles: {

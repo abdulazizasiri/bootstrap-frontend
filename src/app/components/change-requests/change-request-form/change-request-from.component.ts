@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Renderer2} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {LanguageService } from '../../../services/language.service';
 import {UserDetailsService} from '../../../services/user-details.service';
+import {LoginService} from '../../../services/login.service';
+import {Router} from '@angular/router';
+import {UserService} from '../../../services/user.service';
+import {Manager} from '../../../models/manager';
 
 type FileKind = 'pdf' | 'word' | 'excel' | 'unknown';
 
@@ -17,8 +21,9 @@ export class ChangeRequestFromComponent implements OnInit {
   loading = false;
   error = '';
   currentUser: any = {};
+  managerInfo: Manager;
 
-  // ---- Attachments (optional) ----
+
   readonly maxAttachments = 3;
   readonly acceptedExtensions = '.pdf,.doc,.docx,.xls,.xlsx';
   attachments: File[] = [];
@@ -43,12 +48,16 @@ export class ChangeRequestFromComponent implements OnInit {
     private fb: FormBuilder,
     private translate: LanguageService,
     private userDetailsService: UserDetailsService,
+    private userService: UserService,
   ) {}
 
   ngOnInit(): void {
     this.currentLang = this.translate.getLangInitially() || 'ar';
-    // this.translate.onLangChange.subscribe(e => (this.currentLang = e.lang));
-
+    // TODO : Handle Errors
+    this.userService.getManagerInfo().subscribe(data => {
+      console.log("manager ", data)
+      this.managerInfo = data;
+    });
     this.changeRequestForm = this.fb.group({
       requestNumber: [{ value: '', disabled: true }], // auto-generated, e.g. AR01
       requestDate: ['', Validators.required],
@@ -61,8 +70,6 @@ export class ChangeRequestFromComponent implements OnInit {
       managerName: [''],
       managerEmail: [''],
       actionDescription: ['', [Validators.required, Validators.maxLength(1000)]],
-      // NOTE: attachments are intentionally NOT a form control — they are optional
-      // and managed via the attachments array below.
     });
     this.currentUser = this.userDetailsService.currentUser();
     console.log("Current Users: ", this.currentUser)
@@ -109,10 +116,6 @@ export class ChangeRequestFromComponent implements OnInit {
     return '';
   }
 
-  // =====================================================
-  //  Attachments: optional, max 3, PDF / Word / Excel only
-  // =====================================================
-
   onAttachmentsSelected(event: Event): void {
     this.attachmentError = '';
     const input = event.target as HTMLInputElement;
@@ -144,10 +147,8 @@ export class ChangeRequestFromComponent implements OnInit {
         continue;
       }
 
-      // 4. Skip duplicates (same name + size)
       const isDuplicate = this.attachments.some(f => f.name === file.name && f.size === file.size);
       if (isDuplicate) {
-        // this.attachmentError = this.translate.instant('CHANGE_REQUEST.ERR_DUPLICATE_FILE');
         continue;
       }
 
@@ -203,8 +204,6 @@ export class ChangeRequestFromComponent implements OnInit {
       // Attachments are optional — appended only if the user added any
       this.attachments.forEach(file => formData.append('attachments', file, file.name));
 
-      // TODO: replace with your service call, e.g.:
-      // this.changeRequestService.create(formData).subscribe({ ... });
       this.loading = false;
     }
   }

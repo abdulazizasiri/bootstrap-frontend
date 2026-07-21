@@ -8,6 +8,7 @@ import { Subscription } from 'rxjs';
 import { IRoomListDto } from 'src/app/models/room.model';
 import { LanguageService } from 'src/app/services/language.service';
 import {UserService} from '../../services/user.service';
+import {Manager} from '../../models/manager';
 
 @Component({
   selector: 'app-dashboard',
@@ -45,9 +46,6 @@ ngOnInit() {
   this.checkScreenSize();
  this.checkScreenSize();
   this.language = this.languageService.getLangInitially() || 'en';
-  // this.userService.getAllUsers().subscribe(data => {
-  //
-  // })
 }
 
 changeLanguage() {

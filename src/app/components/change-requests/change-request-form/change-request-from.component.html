@@ -156,7 +156,7 @@
           {{ 'CHANGE_REQUEST.MANAGER_NAME' | translate }}
         </label>
         <input type="text"
-               [value]="currentUser?.managerName"
+               [value]="managerInfo?.nameEn"
                disabled
                tabindex="-1"
                class="w-full form-control pe-4 bg-gray-100 text-gray-600 cursor-not-allowed pointer-events-none select-none" />
@@ -167,7 +167,7 @@
           {{ 'CHANGE_REQUEST.MANAGER_EMAIL' | translate }}
         </label>
         <input type="text"
-               [value]="currentUser?.managerEmail"
+               [value]="managerInfo?.email"
                disabled
                tabindex="-1"
                dir="ltr"
